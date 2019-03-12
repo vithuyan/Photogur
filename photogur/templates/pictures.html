@@ -1,13 +1,16 @@
-{% extends 'base.html' %}
-{% block content %}
-  <h2>{{picture.title}}</h2>
-  <h3>By {{picture.artist}}</h3>
-
-  <img src="{{picture.url}}" alt="{{picture.title}}">
-  <ul>
-    <p>Comments:</p>
-    {% for comment in picture.comments.all %}
-    <li>{{comment.name}}: {{comment.message}}</li>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to the Picture Page</h1>
+    <ul>
+    {% for picture in pictures %}
+    <img src="{{ picture.url }}" alt="a random placeholder image">
+    <li>{{ picture.title }}, {{ picture.artist }}, comments: {{ picture.comments.count }}</li>
     {% endfor %}
-  </ul>
-{% endblock %}
+    </ul>
+  </body>
+</html>
