@@ -8,8 +8,10 @@
     <h1>Welcome to the Picture Page</h1>
     <ul>
     {% for picture in pictures %}
+     <a href="{% url 'picture_details' id=picture.pk %}">
     <img src="{{ picture.url }}" alt="a random placeholder image">
     <li>{{ picture.title }}, {{ picture.artist }}, comments: {{ picture.comments.count }}</li>
+      </a>
     {% endfor %}
     </ul>
   </body>
